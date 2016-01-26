@@ -83,10 +83,12 @@ ready.push(function() {
 	};
 	graphics.METHODS = {
 		startAnimation: function(name, time) {
-			if (isNaN(time)) { time = performance.now(); }
-			this.startTime = time;
-			this.current = this[name];
-			this.index = 0;
+			if (this.current !== this[name]) {
+				if (isNaN(time)) { time = performance.now(); }
+				this.startTime = time;
+				this.current = this[name];
+				this.index = 0;
+			}
 		},
 		update: function(time) {
 			if (this.current.length > 1) {
@@ -122,3 +124,15 @@ ready.push(function() {
 });
 
 // input
+var input = [];
+(function() {
+	function log(e) {
+		e = e || window.event;
+		//e.preventDefault();
+		e.time = performance.now();
+		input.push(e);
+	}
+	"keydown,keyup".split(",").forEach(function(event) {
+		on(window, event, log);
+	});
+})();
