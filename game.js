@@ -21,9 +21,9 @@ if (canvas.getContext && (ctx = canvas.getContext("2d"))) {
 				draw: graphics.METHODS.draw
 			};
 			
-			function moveFrame(x) {
+			var moveFrame = function(x) {
 				return graphics.animation.setFramePosition(this, x * this.frame.size.width, 0);
-			}
+			};
 			
 			graphics.king = {
 				image: graphics.king,
@@ -36,11 +36,14 @@ if (canvas.getContext && (ctx = canvas.getContext("2d"))) {
 			graphics.king.animation = {
 				frameDuration: 1000 / 10,
 				current: null, index: 0, startTime: 0,
+				
 				idle: [8].map(moveFrame, graphics.king),
 				walk: [0, 1, 2, 3, 4, 5, 6, 7].map(moveFrame, graphics.king),
+				eat: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 9, 9].map(moveFrame, graphics.king),
+				
 				startAnimation: graphics.METHODS.startAnimation, update: graphics.METHODS.update
 			};
-			graphics.king.animation.startAnimation("walk", 100);
+			graphics.king.animation.startAnimation("walk");
 		}
 	});
 	

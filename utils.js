@@ -83,6 +83,7 @@ ready.push(function() {
 	};
 	graphics.METHODS = {
 		startAnimation: function(name, time) {
+			if (isNaN(time)) { time = performance.now(); }
 			this.startTime = time;
 			this.current = this[name];
 			this.index = 0;
