@@ -27,7 +27,7 @@ if (canvas.getContext && (ctx = canvas.getContext("2d"))) {
 			
 			graphics.king = {
 				image: graphics.king,
-				position: { x: 0, y: 0 },
+				position: { x: 0, y: 0 }, speed: 20 / 1000,
 				centre: { x: 30, y: 64 },
 				frame: { position: { x: 0, y: 0 }, size: { width: 64, height: 64 } },
 				flip: graphics.FLIP.none,
@@ -41,7 +41,8 @@ if (canvas.getContext && (ctx = canvas.getContext("2d"))) {
 				walk: [0, 1, 2, 3, 4, 5, 6, 7].map(moveFrame, graphics.king),
 				eat: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 9, 9].map(moveFrame, graphics.king),
 				
-				startAnimation: graphics.METHODS.startAnimation, update: graphics.METHODS.update
+				startAnimation: graphics.METHODS.startAnimation,
+				update: graphics.METHODS.update
 			};
 			graphics.king.animation.startAnimation("walk");
 		}
