@@ -6,12 +6,12 @@ var camera = {
 		if (!result) { result = {}; }
 		
 		if (!isNaN(position.z) && (position.z !== 1)) {
-			result.x = camera.centre.x - camera.x + (position.x / position.z);
-			result.y = camera.centre.y - camera.y + (position.y / position.z);
+			result.x = camera.centre.x - camera.x + (position.x / position.z) | 0;
+			result.y = camera.centre.y - camera.y + (position.y / position.z) | 0;
 		}
 		else {
-			result.x = position.x + camera.centre.x - camera.x;
-			result.y = position.y  + camera.centre.y - camera.y;
+			result.x = position.x + camera.centre.x - camera.x | 0;
+			result.y = position.y  + camera.centre.y - camera.y | 0;
 		}
 		
 		return result;
