@@ -1,0 +1,2 @@
+body {margin:0; background-color:black;}
+canvas {/*position:absolute;*/ /*background-color:black;*/ backface-visibility: hidden; transform-origin:0 0; image-rendering:pixelated;}
